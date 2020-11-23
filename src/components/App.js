@@ -53,10 +53,10 @@ class App extends Component {
   search(input){
     console.log("searching")
     axios
-    .get('https://practiceapi.devmountain.com/api/posts')
+    .get(`https://practiceapi.devmountain.com/api/posts/filter?text=${encodeURI(input)}`)
     .then(res=>{
-      console.log(res.data.filter(item=>item.text.toLowerCase().includes(input.toLowerCase())))
-      this.setState({posts:res.data.filter(item=>item.text.toLowerCase().includes(input.toLowerCase()))})
+      console.log(res.data)
+      this.setState({posts:res.data})
       
     }
       )
